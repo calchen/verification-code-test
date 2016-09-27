@@ -1,18 +1,10 @@
 <?php
-/**
- * Copyright (C) 2016 上海沃去信息科技有限公司 版权所有。
- *
- * 文件名: GeetestController.php
- * 功能描述:
- *
- * 创 建 人: 陈恺垣
- * 创建日期: 2016/09/26 22:35
- *
- */
 
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Session;
 
 class GeetestController extends Controller {
@@ -28,14 +20,66 @@ class GeetestController extends Controller {
     /**
      * 预处理接口
      *
-     * @return mixed
+     * @param Request $request
+     * @return Response
      */
-    public function getPreProcess() {
+    public function getPreProcess(Request $request) {
         $GtSdk = new \GeetestLib(env('GEETEST_CAPTCHA_ID'), env('GEETEST_PRIVATE_KEY'));
         $user_id = "test";
         $status = $GtSdk->pre_process($user_id);
         Session::set('gtserver', $status);
         Session::set('user_id', $user_id);
-        return $GtSdk->get_response_str();
+
+        $response = new Response();
+        $response->setContent($GtSdk->get_response_str());
+        return $response;
+    }
+
+    /**
+     * 验证码
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function validateCode(Request $request) {
+        $input = $request->input();
+
+        $GtSdk = new \GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
+        $user_id = Session::get('user_id');
+        $gtserver = Session::get('gtserver');
+        $geetest_challenge = $input['geetest_challenge'];
+        $geetest_validate = $input['geetest_validate'];
+        $geetest_seccode = $input['geetest_seccode'];
+
+        $response = new Response();
+        // 判断是否宕机
+        if ($gtserver == 1) {
+            $result = $GtSdk->sucess_validate($geetest_challenge, $geetest_validate, $geetest_seccode, $user_id);
+            if ($result) {
+                $result = [
+                    'message' => '成功',
+                    'serverStatus' => '正常'
+                ];
+            } else {
+                $result = [
+                    'message' => '失败',
+                    'serverStatus' => '正常'
+                ];
+            }
+        } else {
+            if ($GtSdk->fail_validate($geetest_challenge, $geetest_validate, $geetest_seccode)) {
+                $result = [
+                    'message' => '成功',
+                    'serverStatus' => '宕机'
+                ];
+            } else {
+                $result = [
+                    'message' => '失败',
+                    'serverStatus' => '宕机'
+                ];
+            }
+        }
+        $response->setContent($result);
+        return $response;
     }
 }

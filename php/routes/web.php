@@ -17,6 +17,7 @@ Route::get('/aliyun', 'AliyunController@index');
 
 
 Route::get('/geetest', 'GeetestController@index');
-Route::get('/geetest/getPreProcess', 'GeetestController@getPreProcess');
+Route::get('/geetest/preProcess', 'GeetestController@getPreProcess');
+Route::post('/geetest/validate', 'GeetestController@validateCode');
 
 
