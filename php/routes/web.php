@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+
+Route::get('/aliyun', 'AliyunController@index');
+
+
+Route::get('/geetest', 'GeetestController@index');
+Route::get('/geetest/getPreProcess', 'GeetestController@getPreProcess');
+
+

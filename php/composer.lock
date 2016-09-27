@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed9df8b872992035f068a7fe461a635a",
-    "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
+    "hash": "bb96f209519d40fca1fec38a9416ee69",
+    "content-hash": "056d89939b6e3cbde5915f677a73a28c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -160,6 +160,42 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "gee-team/gt-php-sdk",
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeeTeam/gt-php-sdk.git",
+                "reference": "17d9c3edaa87c49e9a647b85d161ef7e7bd3101f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/GeeTeam/gt-php-sdk/17d9c3edaa87c49e9a647b85d161ef7e7bd3101f.zip",
+                "reference": "17d9c3edaa87c49e9a647b85d161ef7e7bd3101f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tanxu1993",
+                    "email": "tanxu1993@gmail.com"
+                }
+            ],
+            "description": "GtWeb Php Demo",
+            "time": "2016-01-26 10:35:48"
         },
         {
             "name": "jakub-onderka/php-console-color",
