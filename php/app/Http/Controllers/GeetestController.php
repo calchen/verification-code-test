@@ -44,17 +44,17 @@ class GeetestController extends Controller {
     public function validateCode(Request $request) {
         $input = $request->input();
 
-        $GtSdk = new \GeetestLib(CAPTCHA_ID, PRIVATE_KEY);
+        $GtSdk = new \GeetestLib(env('GEETEST_CAPTCHA_ID'), env('GEETEST_PRIVATE_KEY'));
         $user_id = Session::get('user_id');
         $gtserver = Session::get('gtserver');
-        $geetest_challenge = $input['geetest_challenge'];
-        $geetest_validate = $input['geetest_validate'];
-        $geetest_seccode = $input['geetest_seccode'];
+        $geetestChallenge = $input['geetestChallenge'];
+        $geetestValidate = $input['geetestValidate'];
+        $geetestSeccode = $input['geetestSeccode'];
 
         $response = new Response();
         // 判断是否宕机
         if ($gtserver == 1) {
-            $result = $GtSdk->sucess_validate($geetest_challenge, $geetest_validate, $geetest_seccode, $user_id);
+            $result = $GtSdk->sucess_validate($geetestChallenge, $geetestValidate, $geetestSeccode, $user_id);
             if ($result) {
                 $result = [
                     'message' => '成功',
@@ -67,7 +67,7 @@ class GeetestController extends Controller {
                 ];
             }
         } else {
-            if ($GtSdk->fail_validate($geetest_challenge, $geetest_validate, $geetest_seccode)) {
+            if ($GtSdk->fail_validate($geetestChallenge, $geetestValidate, $geetestSeccode)) {
                 $result = [
                     'message' => '成功',
                     'serverStatus' => '宕机'
