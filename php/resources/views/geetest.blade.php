@@ -139,12 +139,15 @@
     function onFail() {
         alert('前端验证失败');
     }
+
     function onError() {
         alert('网络错误');
     }
+
     function onRefresh() {
         alert('正在刷新');
     }
+    
     function onReady() {
         alert('验证码已经准备好');
     }
