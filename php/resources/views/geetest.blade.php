@@ -147,7 +147,7 @@
     function onRefresh() {
         alert('正在刷新');
     }
-    
+
     function onReady() {
         alert('验证码已经准备好');
     }
