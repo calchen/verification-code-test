@@ -36,7 +36,7 @@ class GeetestController extends Controller {
     }
 
     /**
-     * 验证码
+     * 二次验证
      *
      * @param Request $request
      * @return Response
