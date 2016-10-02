@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var viewRouter = require('./routes/view');
+var config = require('./.env.js');
 
 var app = express();
 
@@ -34,7 +35,8 @@ app.use(function (req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
+// if (app.get('env') === 'development') {
+if (config.APP_ENV !== 'production') {
     app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
