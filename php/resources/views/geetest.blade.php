@@ -145,11 +145,11 @@
     }
 
     function onRefresh() {
-        alert('正在刷新');
+        console.info('正在刷新');
     }
 
     function onReady() {
-        alert('验证码已经准备好');
+        console.info('验证码已经准备好');
     }
 </script>
 </body>
