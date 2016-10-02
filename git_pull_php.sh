@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 git pull
 
-chown -R apache:apache ./php
+chown -R nginx:nginx ./php
 
 cd ./php
 composer dump-autoload
