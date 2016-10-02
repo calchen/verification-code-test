@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
+//Route::get('/', 'IndexController@index');
 
 Route::get('/aliyun', 'AliyunController@index');
 
