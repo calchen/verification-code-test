@@ -35,6 +35,13 @@ class TouclickController extends Controller {
         return $res;
     }
 
+    /**
+     * 获取每种方法的页面
+     *
+     * @param Request $request
+     * @param $type
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
+     */
     public function getPage(Request $request, $type) {
         switch ($type) {
             case 1:
