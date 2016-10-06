@@ -20,4 +20,7 @@ Route::get('/geetest', 'GeetestController@index');
 Route::get('/geetest/preProcess', 'GeetestController@getPreProcess');
 Route::post('/geetest/validate', 'GeetestController@validateCode');
 
+Route::get('/touclick', 'TouclickController@index');
+Route::get('/touclick/{type}', 'TouclickController@getPage');
+Route::post('/touclick/validate', 'TouclickController@validateCode');
 

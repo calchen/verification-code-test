@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>极验</title>
-    <link href="./asset/css/common.css" rel="stylesheet">
+    <link href="{{ env('URL_PREFIX') }}/asset/css/common.css" rel="stylesheet">
     <style>
         #captcha1 {
             margin: 180px 0 10px 20px;
@@ -29,7 +29,7 @@
 <div id="captcha3-1"></div>
 <button class="captcha" id="captcha3-2">点击</button>
 
-<script src="./asset/js/jquery-1.12.3.min.js"></script>
+<script src="{{ env('URL_PREFIX') }}/asset/js/jquery-1.12.3.min.js"></script>
 <script src="//static.geetest.com/static/tools/gt.js"></script>
 <script>
     getPreProcess(function (data) {
@@ -98,7 +98,7 @@
     function getPreProcess(cb) {
         $.ajax({
             type: "GET",
-            url: "./geetest/preProcess?rand=" + Math.round(Math.random() * 100),
+            url: "{{ env('URL_PREFIX') }}/geetest/preProcess?rand=" + Math.round(Math.random() * 100),
             dataType: "json", // 使用jsonp格式
             success: function (data) {
                 cb(data)
@@ -109,7 +109,7 @@
         $.ajax({
             // 获取id，challenge，success（是否启用failback）
             type: "POST",
-            url: "./geetest/validate",
+            url: "{{ env('URL_PREFIX') }}/geetest/validate",
             contentType: "application/json",
             dataType: "json",
             data: JSON.stringify({
