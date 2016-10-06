@@ -12,7 +12,6 @@
             margin: 300px 0 10px 20px;
             width: 350px;
         }
-
     </style>
 </head>
 <body>

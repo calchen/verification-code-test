@@ -7,15 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>点触</title>
     <link href="{{ env('URL_PREFIX') }}/asset/css/common.css" rel="stylesheet">
-    <style>
-        #captcha1 {
-            margin: 180px 0 10px 20px;
-        }
-
-        .captcha {
-            margin: 10px 0 10px 20px;
-        }
-    </style>
 </head>
 <body>
 <a href="../" class=>返回</a>

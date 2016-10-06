@@ -15,7 +15,7 @@ var captcha = new Geetest({
  * @param next
  */
 exports.index = function (req, res, next) {
-    res.render('geetest');
+    res.render('geetest', {config: config});
 };
 
 /**
