@@ -24,3 +24,5 @@ Route::get('/touclick', 'TouclickController@index');
 Route::get('/touclick/{type}', 'TouclickController@getPage');
 Route::post('/touclick/validate', 'TouclickController@validateCode');
 
+Route::get('/aliyun', 'AliyunController@index');
+Route::post('/aliyun/validate', 'AliyunController@validateCode');
