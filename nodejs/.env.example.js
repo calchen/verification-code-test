@@ -9,6 +9,10 @@ var env = {
     TOUCLICK_PUBLIC_KEY2: '',
     TOUCLICK_PRIVATE_KEY2: '',
     TOUCLICK_PUBLIC_KEY3: '',
-    TOUCLICK_PRIVATE_KEY3: ''
+    TOUCLICK_PRIVATE_KEY3: '',
+    ALIYUN_ACCESS_KEY_ID: '',
+    ALIYUN_ACCESS_KEY_SECRET: '',
+    ALIYUN_SAF_APPKEY: '',
+    ALIYUN_SAF_AK: ''
 };
 module.exports = env;
