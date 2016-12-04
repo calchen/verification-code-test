@@ -21,7 +21,7 @@
 <div id="captcha1"></div>
 <input type="hidden" id="type" value="{{ $type }}">
 <script src="{{ env('URL_PREFIX') }}/asset/js/jquery-1.12.3.min.js"></script>
-<script src="http://js.touclick.com/js.touclick?b={{ $publicKey }}"></script>
+<script src="https://js.touclick.com/js.touclick?b={{ $publicKey }}"></script>
 <script>
     TouClick.ready(function () {
         /*
